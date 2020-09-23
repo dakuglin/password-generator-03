@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Password Generator</title> <!--title of the page tab in the browser-->
+    <link rel="stylesheet" href="style.css" /> <!--link the .css sytle sheet-->
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Password Generator</h1> <!--main title of the webpage-->
+      </header>
+      <div class="card">
+        <div class="card-header">
+          <h2>Generate a Password</h2>
+          <ol class="orderedList"> <!--start of my ordered list for prompts that the user will enter for desired password-->
+            <li >
+              Password Length: <input id = "passLength" type="number" min = "8" max = "128" name="password-length"/> <!--creating a input number box for password length that will only allow for minumimun of 8 characters and max of 128 characters with a name to reference elemnts in javascript-->
+            </li>
+            <br>
+            <li>
+              Lowercase Letters: <input id = "passLowercase"  type="checkbox" name="lowercase-letters"/> <!--input checkbox with a name to reference elements in javascript-->
+            </li>
+            <br>
+            <li>
+              Uppercase Letters: <input id = "passUppercase" type="checkbox" name ="uppercase-letters"/> <!--input checkbox with a name to reference elements in javascript-->
+            </li>
+            <br>
+            <li>
+              Symbols: <input id = "passSymbol" type="checkbox" name= "symbols"/> <!--input checkbox with a name to reference elements in javascript-->
+            </li>
+            <br>
+            <li>
+              Numbers: <input id = "passNumber" type="checkbox" name="numbers"/> <!--input checkbox with a name to reference elements in javascript-->
+            </li>
+          </ol>
+        
+        </div>
+        <div class="card-body">
+          <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
+        </div>
+        <div class="card-footer">
+          <button id="generate" class="btn">Generate Password</button> <!--will activate JS script-->
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script> <!--link to the script.js file-->
+  </body>
+</html>
