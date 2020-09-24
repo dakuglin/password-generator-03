@@ -3,9 +3,6 @@
 // Global variables 
 //-----------------------------------------------------------------------------------------------
 
-var userPasswordLength = parseInt(prompt("Desired length of password:")) //parseInt is creating a number
-console.log(userPasswordLength);
-
 var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
 var lowercase =  ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -14,12 +11,25 @@ var number = ["1","2","3","4","5","6","7","8","9"];
 
 var symbols = ["!","#","%","&","(",")","*","+","-","~","/",":","<","?","^","[","]","{","}"];
 
+var finalOptions = {   // everyting in code has access to this now 
+  //userPasswordLength: 0,
+  userPasswordLength: [], 
+  userLowerCase: [],
+  userUpperCase: [],
+  userSymbols: [],
+  userNumbers: [],
+}; 
 
+
+   
 //Functions
 //-----------------------------------------------------------------------------------------------
 function passwordChoices() { //function 1
 
-// building conditionals 
+  var userPasswordLength = parseInt(prompt("Desired length of password:")) //parseInt is creating a number
+  console.log(userPasswordLength);
+
+  // building conditionals 
   if (userPasswordLength < 8) {
     alert("Password must be at least 8 characters long.");
     return;
@@ -42,8 +52,8 @@ function passwordChoices() { //function 1
   var userNumbers = confirm("Do you require numbers?");
   console.log(userNumbers);
 
-    var finalOptions = {   // building an object so we can use it later
-    userPasswordLength: userPasswordLength,
+    finalOptions = {   // building an object so we can use it later
+    userPasswordLength: userPasswordLength, 
     userLowerCase: userLowerCase,
     userUpperCase: userUpperCase,
     userSymbols: userSymbols,
@@ -53,43 +63,94 @@ function passwordChoices() { //function 1
 return finalOptions; // returns finalOptions object
 }
 
-passwordChoices();
+passwordChoices()
 
+function userSelectedOptions() { // function 2 to get a random element
+  //let validElements = []; // creating an empty array that we will use to store our valid elements
+  let validElements = []; 
+  console.log(validElements)
 
-
-function passwordOptions(finalOptions) { // function 2 to get a random element
-  var userSelectedCharacters = []; // creating an empty array that we will use to store our valid elements
   if (finalOptions.userLowerCase) {
-    userSelectedCharacters = userSelectedCharacters.concat(lowercase)  //joining two things
+    validElements = validElements.concat(lowercase); //joining two things
   }
   if (finalOptions.userUpperCase) {
-    userSelectedCharacters = userSelectedCharacters.concat(uppercase) //joining two things
+    validElements = validElements.concat(uppercase); //joining two things
   }
   if (finalOptions.userNumber) {
-    userSelectedCharacters =userSelectedCharacters.concat(number) //joining two things
+    validElements =validElements.concat(number); //joining two things
   }
   if (finalOptions.userSymbols) {
-    userSelectedCharacters = userSelectedCharacters.concat(symbol) //joining two things
+    validElements = validElements.concat(symbols); //joining two things
   }
-  console.log(userSelectedCharacters);
-}
+  
 
-passwordOptions();
-console.log(userSelectedCharacters);
-
-
-
-
-function randomize(userSelectedCharacters) {
-  for (userSelectedCharacters i = 0; i < options.userPasswordLength; i++) {
-  var randIndex = Math.floor(Math.random() * userSelectedCharacters.length);
-  var randomElement = arr[randIndex];
+  for ( i = 0; i < finalOptions.userPasswordLength; i++) {
+    var randomIndex = Math.floor(Math.random() * validElements.length);
+    var randomElement = validElements[randomIndex];
+    console.log(randomElement);
+    }
+    //return results.join(randomElement);
   }
-  return randomElement;
- // console.log(randoemElements);
-}
 
-randomize();
+// const password = randomElement;
+
+// console.log(passowrd);
+  
+// //console.log(password)
+
+// console.log(validElements);
+
+
+// let pw = ""
+// for (let i = 0; i < options.userPasswordLength; i++) {
+//   var randIndex = Math.floor(Math.random() * validElements.length);
+//   var randElement = validElements[randIndex];
+//   pw = `${pw}${randElement}`
+// }
+// return pw;
+
+
+// function randomize() {
+//   var validElements; // going to call on the validElements and randomly scan over the array to the selected length of the user password
+  
+//   //console.log(password);
+//   }
+//   return result.join('');
+// }
+
+
+
+// randomize(userSelectedOptions)
+
+
+//console.log(randomize);
+
+
+
+
+
+
+
+
+
+
+
+
+// // Assignment Code
+// var generateBtn = document.querySelector("#generate");
+
+// // Write password to the #password input
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
+
+//   passwordText.value = password;
+
+// }
+
+// // Add event listener to generate button
+// generateBtn.addEventListener("click", writePassword);
+
 
 
 
@@ -98,18 +159,18 @@ randomize();
 //------------------------------------------------------------------------------------------------------
 // Write password to the #password input
 // function password() { 
-//   var userSelectedCharacters = []; // creating an empty array that we will use to store our valid elements
+//   var validElements = []; // creating an empty array that we will use to store our valid elements
 //   if (options.userLowerCase) {
-//     userSelectedCharacters = userSelectedCharacters.concat(lowercase)  //joining two things
+//     validElements = validElements.concat(lowercase)  //joining two things
 //   }
 //   if (options.userUpperCase) {
-//     userSelectedCharacters = userSelectedCharacters.concat(uppercase) //joining two things
+//     validElements = validElements.concat(uppercase) //joining two things
 //   }
 //   if (options.userNumber) {
-//     userSelectedCharacters =userSelectedCharacters.concat(number) //joining two things
+//     validElements =validElements.concat(number) //joining two things
 //   }
 //   if (options.userSymbols) {
-//     userSelectedCharacters = userSelectedCharacters.concat(symbol) //joining two things
+//     validElements = validElements.concat(symbol) //joining two things
 //   }
 // }
 
@@ -131,15 +192,3 @@ randomize();
 
 //   return results.join('');
 
-// let pw = ""
-// for (let i = 0; i < options.userPasswordLength; i++) {
-//   var randIndex = Math.floor(Math.random() * userSelectedCharacters.length);
-//   var randElement = userSelectedCharacters[randIndex];
-//   pw = `${pw}${randElement}`
-// }
-// return pw;
-// }
-
-// const password = randomize(passwordChoices())
-
-// console.log(password)
