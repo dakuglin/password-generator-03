@@ -10,21 +10,11 @@
 
 * Pseudocode:
 1) prompt user to define the length of password they need 
-2) User selects what other password parameters they need
-User clicks the button to generate a password
-User is presented with a series of prompts for password criteria
-
-User selects which criteria to include in the password:
-    Length of the password
-    THEN user chooses a length of at least 8 characters and no more than 128 characters
-    Character types needed in password
-    THEN user chooses lowercase, uppercase, numeric, and/or special characters
+    this number character will become an important number for figuring out how may times an operation needs to happen
+2) prompt user to select other password parameters they need
+3) user clicks the button to generate a password
+4) users password specific parameters are stored 
+5) need to take the input parameters from the user and generate an acceptable password given the criteria selected
+6) generate an acceptalbe password and display to the user
 
 
-
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page

@@ -60,34 +60,6 @@ header {
   color:hsl(206, 17%, 28%);
 }
 
-/* controls the location of the password length number box */
-#passLength {
-
-  margin-left:115px;
-}
-
-/* controls the location of the lowercase letter checkbox  */
-#passLowercase {
-  margin-left:160px;
-  padding-top: 20px;
-  padding-bottom:20px;
-}
-
-/* controls the location of the uppercase letter checkbox */
-#passUppercase {
-  margin-left:160px;
-}
-
-/* controls the location of the symbol checkbox */
-#passSymbol {
-  margin-left:238px;
-}
-
-/* controls the location of the number checkbox*/
-#passNumber {
-  margin-left:234px;
-}
-
 /* controls the  */
 .card-body {
   min-height: 100px;
