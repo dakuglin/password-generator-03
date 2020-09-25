@@ -12,7 +12,6 @@ var number = ["1","2","3","4","5","6","7","8","9"];
 var symbols = ["!","#","%","&","(",")","*","+","-","~","/",":","<","?","^","[","]","{","}"];
 
 var finalOptions = {   // everyting in code has access to this now 
-  //userPasswordLength: 0,
   userPasswordLength: [], 
   userLowerCase: [],
   userUpperCase: [],
@@ -29,7 +28,7 @@ function passwordChoices() { //function 1
   var userPasswordLength = parseInt(prompt("Desired length of password:")) //parseInt is creating a number
   console.log(userPasswordLength);
 
-  // building conditionals 
+  // building conditionals below so user can create the type of password they want
   if (userPasswordLength < 8) {
     alert("Password must be at least 8 characters long.");
     return;
@@ -73,10 +72,11 @@ function passwordChoices() { //function 1
 return finalOptions; // returns finalOptions object
 }
 
-passwordChoices();
 
 function userSelectedOptions() { // function 2 to get a random element
+  passwordChoices();
   var validElements = []; // creating an empty array that we will use to store our valid elements
+  var finalPass = ''; //creating an empty string in order to turn my password into a string
   console.log(validElements);
 
   if (finalOptions.userLowerCase) {
@@ -85,7 +85,7 @@ function userSelectedOptions() { // function 2 to get a random element
   if (finalOptions.userUpperCase) {
     validElements = validElements.concat(uppercase); //joining two things
   }
-  if (finalOptions.userNumber) {
+  if (finalOptions.userNumbers) {
     validElements =validElements.concat(number); //joining two things
   }
   if (finalOptions.userSymbols) {
@@ -95,35 +95,32 @@ function userSelectedOptions() { // function 2 to get a random element
   for ( i = 0; i < finalOptions.userPasswordLength; i++) {
     var randomIndex = Math.floor(Math.random() * validElements.length); //grabbing random index positions in my array of valid elements
     var randomElement = validElements[randomIndex];
-    var string = '' +=randomElements;
-    //string += randomElements;
-
-    //console.log(randomElement);
-    //validElements.push("test");
-
-     //pw +=randomElement;
-      //console.log(password);
-       // =+(randomElement)
-      //console.log(password);
+    finalPass += randomElement;
+    console.log(finalPass)
    }
-  //return randomElement;
-  //return password;
+  return finalPass;
 }
- 
-userSelectedOptions();
 
+//Listner for when user presses generate password
+//-------------------------------------------------------------------------------------------------
 
-// Assignment Code
-var generateBtn = document.querySelector("#generate"); //generateBtn is the dOM Event
+var generateBtn = document.querySelector("#generate");
+var passwordText = document.querySelector("#password");
 
 // Write password to the #password input
 function writePassword() {
   var password = userSelectedOptions();
-  var passwordText = document.querySelector("#password");
+  //var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-  //password.randomElement.length = password
+  //passwordText.value = password;
+  passwordText.innerHTML = password; 
+
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword());
+generateBtn.addEventListener("click", writePassword);
+
+
+
+
+

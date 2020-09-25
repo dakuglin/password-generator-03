@@ -15,12 +15,11 @@
 * 3) user clicks the button to generate a password
 * 4) users password specific parameters are stored 
 * 5) need to take the input parameters from the user and generate an acceptable password given the criteria selected
-* 6) generate an acceptalbe password and display to the user
+* 6) generate an acceptable password and display to the user
 
 
 
 * Overview
 
-* The purpose of this homework assignment was to learn practice learing to link JS to your html, writing function, and 
-
+* The purpose of this homework assignment was to practice learing to link JS to your html, writing functions, and learning how to use the event listener. By linking our JS to our HTML, we have now made our browser interactive for our user. This is the power of JS; it allows for browser interaction. We can also write code that would normally take up lots of lines by utulizing functions. 
 
