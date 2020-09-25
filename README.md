@@ -9,12 +9,18 @@
 * Needing or not needing special symbols 
 
 * Pseudocode:
-1) prompt user to define the length of password they need 
+* 1) prompt user to define the length of password they need 
     this number character will become an important number for figuring out how may times an operation needs to happen
-2) prompt user to select other password parameters they need
-3) user clicks the button to generate a password
-4) users password specific parameters are stored 
-5) need to take the input parameters from the user and generate an acceptable password given the criteria selected
-6) generate an acceptalbe password and display to the user
+* 2) prompt user to select other password parameters they need
+* 3) user clicks the button to generate a password
+* 4) users password specific parameters are stored 
+* 5) need to take the input parameters from the user and generate an acceptable password given the criteria selected
+* 6) generate an acceptalbe password and display to the user
+
+
+
+* Overview
+
+* The purpose of this homework assignment was to learn practice learing to link JS to your html, writing function, and 
 
 

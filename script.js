@@ -52,6 +52,16 @@ function passwordChoices() { //function 1
   var userNumbers = confirm("Do you require numbers?");
   console.log(userNumbers);
 
+  if (
+    userLowerCase === false &&
+    userUpperCase === false &&
+    userNumbers === false &&
+    userSymbols === false
+  ) {
+    alert("You must select one at least one password parameter.");
+    return;
+  }
+  
     finalOptions = {   // building an object so we can use it later
     userPasswordLength: userPasswordLength, 
     userLowerCase: userLowerCase,
@@ -63,12 +73,11 @@ function passwordChoices() { //function 1
 return finalOptions; // returns finalOptions object
 }
 
-passwordChoices()
+passwordChoices();
 
 function userSelectedOptions() { // function 2 to get a random element
-  //let validElements = []; // creating an empty array that we will use to store our valid elements
-  let validElements = []; 
-  console.log(validElements)
+  var validElements = []; // creating an empty array that we will use to store our valid elements
+  console.log(validElements);
 
   if (finalOptions.userLowerCase) {
     validElements = validElements.concat(lowercase); //joining two things
@@ -82,113 +91,39 @@ function userSelectedOptions() { // function 2 to get a random element
   if (finalOptions.userSymbols) {
     validElements = validElements.concat(symbols); //joining two things
   }
-  
 
   for ( i = 0; i < finalOptions.userPasswordLength; i++) {
-    var randomIndex = Math.floor(Math.random() * validElements.length);
+    var randomIndex = Math.floor(Math.random() * validElements.length); //grabbing random index positions in my array of valid elements
     var randomElement = validElements[randomIndex];
-    console.log(randomElement);
-    }
-    //return results.join(randomElement);
-  }
+    var string = '' +=randomElements;
+    //string += randomElements;
 
-// const password = randomElement;
+    //console.log(randomElement);
+    //validElements.push("test");
 
-// console.log(passowrd);
-  
-// //console.log(password)
-
-// console.log(validElements);
-
-
-// let pw = ""
-// for (let i = 0; i < options.userPasswordLength; i++) {
-//   var randIndex = Math.floor(Math.random() * validElements.length);
-//   var randElement = validElements[randIndex];
-//   pw = `${pw}${randElement}`
-// }
-// return pw;
+     //pw +=randomElement;
+      //console.log(password);
+       // =+(randomElement)
+      //console.log(password);
+   }
+  //return randomElement;
+  //return password;
+}
+ 
+userSelectedOptions();
 
 
-// function randomize() {
-//   var validElements; // going to call on the validElements and randomly scan over the array to the selected length of the user password
-  
-//   //console.log(password);
-//   }
-//   return result.join('');
-// }
+// Assignment Code
+var generateBtn = document.querySelector("#generate"); //generateBtn is the dOM Event
 
-
-
-// randomize(userSelectedOptions)
-
-
-//console.log(randomize);
-
-
-
-
-
-
-
-
-
-
-
-
-// // Assignment Code
-// var generateBtn = document.querySelector("#generate");
-
-// // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-
-// }
-
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
-
-
-
-
-
-
-//------------------------------------------------------------------------------------------------------
 // Write password to the #password input
-// function password() { 
-//   var validElements = []; // creating an empty array that we will use to store our valid elements
-//   if (options.userLowerCase) {
-//     validElements = validElements.concat(lowercase)  //joining two things
-//   }
-//   if (options.userUpperCase) {
-//     validElements = validElements.concat(uppercase) //joining two things
-//   }
-//   if (options.userNumber) {
-//     validElements =validElements.concat(number) //joining two things
-//   }
-//   if (options.userSymbols) {
-//     validElements = validElements.concat(symbol) //joining two things
-//   }
-// }
+function writePassword() {
+  var password = userSelectedOptions();
+  var passwordText = document.querySelector("#password");
 
-//   if (
-//     userLowerCase === false &&
-//     userUpperCase === false &&
-//     userNumbers === false &&
-//     userSymbols === false
-//   ) {
-//     alert("You must select one at least one password parameter");
-//     return;
-//   }
-//   //create two for loops
-//   // one will push possilbe arrays into possible arrays
-//   //loop though options.length
+  passwordText.value = password;
+  //password.randomElement.length = password
+}
 
-//   //second for loop through garunteed 
-
-
-//   return results.join('');
-
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword());
